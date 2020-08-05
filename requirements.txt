@@ -1,0 +1,10 @@
+flask
+flask_restplus
+tensorflow
+tensorflow_hub
+tensorflow_text
+numpy
+tqdm
+Werkzeug==0.16.0
+absl-py
+fasttext

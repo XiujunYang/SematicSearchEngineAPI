@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  sent_embedding:
+    image: sent_embedding:1.0.1
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - /Users/xiujun/codebase/python/SimilarAndSematicSearchEngine/data/algorithms:/app/models
+    environment:
+      - "MODELS=tf:tf/universal-sentence-encoder_4;fasttext_eng:fasttext/cc.en.300.bin;fasttext_ara:fasttext/cc.ar.300.bin"
+    #deploy:
+    #  resources:
+    #    limits:
+    #      memory: 10g
+    #    reservations:
+    #      memory: 5g
+  
+# better to start one by one, if start all will be killd by out of memory killer
+
+# docker-compose up --build sent_embedding_tf 
+# docker-compose up --build sent_embedding_fasttext
+# docker-compose up --build sent_embedding_infersent 
